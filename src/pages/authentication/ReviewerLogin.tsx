@@ -7,8 +7,10 @@ const ReviewerLogin: React.FC = () => {
   const [password, setPassword] = useState ("");
   const [error, setError] = useState ("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setError("");
 
     const phoneRegex = /^[0-9]{9}$/;
     if(!phoneRegex.test(phoneNumber)){
@@ -35,6 +37,9 @@ const ReviewerLogin: React.FC = () => {
         </h2>
 
         <form onSubmit={handleSubmit}>
+          {error && (
+            <p className="text-red-500 text-sm mb-3">{error}</p>
+          )}
           <input 
           type="phone Number"
           placeholder="Phone Number"

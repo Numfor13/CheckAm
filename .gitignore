@@ -26,3 +26,6 @@ dist-ssr
 node_modules
 dist
 .env
+
+src/pages/Login.tsx
+src/pages/Signup.tsx
